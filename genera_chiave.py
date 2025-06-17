@@ -1,3 +1,5 @@
+
+##USALO PER GENERARE UNA SECRET KEY E UN JWT TOKEN##
 import subprocess
 
 def generate_random_base64():

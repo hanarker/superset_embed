@@ -9,6 +9,6 @@ def generate_random_base64():
     # Restituisci il risultato (random base64 string)
     return result.stdout.strip()
 
-# Esegui la funzione e stampa il risultato
+# Esegui la funzione e s tampa il risultato
 random_string = generate_random_base64()
 print(random_string)

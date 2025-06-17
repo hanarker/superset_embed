@@ -1,0 +1,29 @@
+services:
+  superset:
+    image: apache/superset:latest
+    container_name: superset_embedding
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./config_custom_superset:/app/config_personalizzata/
+      - superset_home:/app/superset_home
+    environment:
+      - PYTHONPATH=/app/config_personalizzata
+
+      - ADMIN_USERNAME=admin
+      - ADMIN_FIRSTNAME=Superset
+      - ADMIN_LASTNAME=Admin
+      - ADMIN_EMAIL=admin@example.com
+      - ADMIN_PASSWORD=admin
+    restart: no
+    command: >
+      /bin/bash -c "
+        pip install flask-cors psycopg2-binary pyarrow &&
+        superset db upgrade &&
+        superset fab create-admin --username admin --firstname Superset --lastname Admin --email admin@example.com --password admin &&
+        superset init &&
+        superset run -h 0.0.0.0 -p 8088
+      "
+
+volumes:
+  superset_home:

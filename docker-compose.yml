@@ -9,7 +9,6 @@ services:
       - superset_home:/app/superset_home
     environment:
       - PYTHONPATH=/app/config_personalizzata
-
       - ADMIN_USERNAME=admin
       - ADMIN_FIRSTNAME=Superset
       - ADMIN_LASTNAME=Admin
